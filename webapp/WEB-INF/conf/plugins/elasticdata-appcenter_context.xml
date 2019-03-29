@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd" >
+
+    <bean id="elasticdata-appcenter.demandDataSource" class="fr.paris.lutece.plugins.elasticdata.modules.appcenter.business.demand.DemandDataSource" >
+        <property name="id" value="DemandDataSource" />
+        <property name="name" value="Base des demandes de Fast Deploy v2" />
+        <property name="targetIndexName" value="demands" />
+        <property name="dataType" value="demand" />
+    </bean>
+
+    <bean id="elasticdata-appcenter.userDataSource" class="fr.paris.lutece.plugins.elasticdata.modules.appcenter.business.user.UserDataSource" >
+        <property name="id" value="UserDataSource" />
+        <property name="name" value="Base des utilisateurs de Fast Deploy v2" />
+        <property name="targetIndexName" value="users" />
+        <property name="dataType" value="user" />
+    </bean>
+
+    <bean id="elasticdata-appcenter.applicationDataSource" class="fr.paris.lutece.plugins.elasticdata.modules.appcenter.business.application.ApplicationDataSource" >
+        <property name="id" value="ApplicationDataSource" />
+        <property name="name" value="Base des applications de Fast Deploy v2" />
+        <property name="targetIndexName" value="applications" />
+        <property name="dataType" value="application" />
+    </bean>
+
+</beans>

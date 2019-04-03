@@ -34,7 +34,12 @@
 
 package fr.paris.lutece.plugins.elasticdata.modules.appcenter.business.user;
 
+import fr.paris.lutece.plugins.appcenter.business.Application;
+import fr.paris.lutece.plugins.appcenter.business.ApplicationHome;
+import fr.paris.lutece.plugins.appcenter.business.RoleHome;
 import fr.paris.lutece.plugins.appcenter.business.User;
+import fr.paris.lutece.plugins.appcenter.business.UserApplicationRole;
+import fr.paris.lutece.plugins.appcenter.business.UserApplicationRoleHome;
 import fr.paris.lutece.plugins.appcenter.business.UserHome;
 import fr.paris.lutece.plugins.elasticdata.business.AbstractDataSource;
 import fr.paris.lutece.plugins.elasticdata.business.DataObject;
@@ -61,7 +66,20 @@ public class UserDataSource extends AbstractDataSource
         for (User user : listUsers)
         {
             UserObject userDataObject = new UserObject( );
-            userDataObject.setListUserApplicationRoles( user.getListUserApplicationRoles( ) );
+            List<UserApplicationRole> listUserApplicationRoles = UserApplicationRoleHome.getUserApplicationRolesListByIdUser( user.getId( ) );
+            List<ApplicationRole> listApplicationRoles = new ArrayList<>( );
+            for (UserApplicationRole userApplicationRole : listUserApplicationRoles)
+            {
+                ApplicationRole applicationRole = new ApplicationRole( );
+                applicationRole.setIdRole( userApplicationRole.getIdRole( ) );
+                applicationRole.setLabelRole( RoleHome.findByPrimaryKey( userApplicationRole.getIdRole( ) ).getLabel( ) );
+                applicationRole.setIdApplication( userApplicationRole.getIdApplication( ) );
+                Application application = ApplicationHome.findByPrimaryKey( userApplicationRole.getIdApplication( ) );
+                applicationRole.setCodeApplication( application.getCode( ) );
+                applicationRole.setNameApplication( application.getName( ) );
+                listApplicationRoles.add( applicationRole );
+            }
+            userDataObject.setListApplicationRoles( listApplicationRoles );
 
             collResult.add( userDataObject );
         }

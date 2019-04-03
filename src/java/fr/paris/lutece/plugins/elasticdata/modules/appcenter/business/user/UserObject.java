@@ -34,7 +34,6 @@
 
 package fr.paris.lutece.plugins.elasticdata.modules.appcenter.business.user;
 
-import fr.paris.lutece.plugins.appcenter.business.UserApplicationRole;
 import fr.paris.lutece.plugins.elasticdata.modules.appcenter.business.demand.*;
 import fr.paris.lutece.plugins.elasticdata.business.AbstractDataObject;
 import java.util.List;
@@ -44,23 +43,23 @@ import java.util.List;
  */
 public class UserObject extends AbstractDataObject
 {
-    private List<UserApplicationRole> _listUserApplicationRoles;
+    private List<ApplicationRole> _listApplicationRoles;
     
     /**
-     * Get the user application roles
-     * @return the 
+     * Get the application roles
+     * @return the list of application roles
      */
-    public List<UserApplicationRole> getListUserApplicationRoles()
+    public List<ApplicationRole> getListApplicationRoles()
     {
-        return _listUserApplicationRoles;
+        return _listApplicationRoles;
     }
 
     /**
-     * Set the user applcation roles list
-     * @param listUserApplicationRoles The user application roles list
+     * Set the applcation roles list
+     * @param listApplicationRoles The application roles list
      */
-    public void setListUserApplicationRoles(List<UserApplicationRole> listUserApplicationRoles)
+    public void setListApplicationRoles(List<ApplicationRole> listApplicationRoles)
     {
-        _listUserApplicationRoles = listUserApplicationRoles;
+        _listApplicationRoles = listApplicationRoles;
     }
 }

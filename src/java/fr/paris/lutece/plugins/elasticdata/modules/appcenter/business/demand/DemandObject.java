@@ -44,9 +44,13 @@ public class DemandObject extends AbstractDataObject
 {
     private String _strDemandType;
     private String _strIdDemandType;
+    private String _strLabelDemandType;
     private int _nIdApplication;
+    private String _strCodeApplication;
+    private String _strNameApplication;
     private String _strIdUserFront;
-    private Environment _environment;
+    private String _strPrefixEnvironment;
+    private String _strLabelEnvironment;
     private boolean _bIsClosed;
     private long _lTimestampCreation;
     private long _lTimestampLastUpdate;
@@ -93,6 +97,27 @@ public class DemandObject extends AbstractDataObject
     }
 
     /**
+     * Returns the demand type label
+     *
+     * @return The demand type label
+     */
+    public String getLabelDemandType( )
+    {
+        return _strLabelDemandType;
+    }
+
+    /**
+     * Set the demand type label
+     * 
+     * @param strLabelDemandType
+     *            the demand type label
+     */
+    public void setLabelDemandType( String strLabelDemandType )
+    {
+        _strLabelDemandType = strLabelDemandType;
+    }
+
+    /**
      * Returns the application Id
      *
      * @return The application Id
@@ -111,6 +136,48 @@ public class DemandObject extends AbstractDataObject
     public void setIdApplication( int nIdApplication )
     {
         _nIdApplication = nIdApplication;
+    }
+
+    /**
+     * Returns the application code
+     *
+     * @return The application code
+     */
+    public String getCodeApplication( )
+    {
+        return _strCodeApplication;
+    }
+
+    /**
+     * Set the application code
+     * 
+     * @param strCodeApplication
+     *            the application code
+     */
+    public void setCodeApplication( String strCodeApplication )
+    {
+        _strCodeApplication = strCodeApplication;
+    }
+
+    /**
+     * Returns the application name
+     *
+     * @return The application name
+     */
+    public String getNameApplication( )
+    {
+        return _strNameApplication;
+    }
+
+    /**
+     * Set the application name
+     * 
+     * @param strNameApplication
+     *            the application name
+     */
+    public void setNameApplication( String strNameApplication )
+    {
+        _strNameApplication = strNameApplication;
     }
 
     /**
@@ -135,21 +202,39 @@ public class DemandObject extends AbstractDataObject
     }
 
     /**
-     * Get the environment
-     * @return the environment of the demand
+     * Get the environment prefix
+     * @return the environment prefix of the demand
      */
-    public Environment getEnvironment()
+    public String getPrefixEnvironment()
     {
-        return _environment;
+        return _strPrefixEnvironment;
     }
 
     /**
-     * Set the environment of the demand
-     * @param environment the environment of the demand
+     * Set the environment prefix of the demand
+     * @param strPrefixEnvironment the environment prefix of the demand
      */
-    public void setEnvironment( Environment environment )
+    public void setPrefixEnvironment( String strPrefixEnvironment )
     {
-        _environment = environment;
+        _strPrefixEnvironment = strPrefixEnvironment;
+    }
+
+    /**
+     * Get the environment label
+     * @return the environment label of the demand
+     */
+    public String getLabelEnvironment()
+    {
+        return _strLabelEnvironment;
+    }
+
+    /**
+     * Set the environment label of the demand
+     * @param strLabelEnvironment the environment label of the demand
+     */
+    public void setLabelEnvironment( String strLabelEnvironment )
+    {
+        _strLabelEnvironment = strLabelEnvironment;
     }
 
     /**

@@ -34,8 +34,10 @@
 
 package fr.paris.lutece.plugins.elasticdata.modules.appcenter.business.demand;
 
+import fr.paris.lutece.plugins.appcenter.business.ApplicationHome;
 import fr.paris.lutece.plugins.appcenter.business.Demand;
 import fr.paris.lutece.plugins.appcenter.business.DemandHome;
+import fr.paris.lutece.plugins.appcenter.business.DemandTypeHome;
 import fr.paris.lutece.plugins.elasticdata.business.AbstractDataSource;
 import fr.paris.lutece.plugins.elasticdata.business.DataObject;
 
@@ -63,9 +65,13 @@ public class DemandDataSource extends AbstractDataSource
             DemandObject demandDataObject = new DemandObject( );
             demandDataObject.setDemandType( demand.getDemandType( ) );
             demandDataObject.setIdDemandType( demand.getIdDemandType( ) );
+            demandDataObject.setLabelDemandType( DemandTypeHome.findByIdDemandType( demand.getIdDemandType( ) ).getLabel( ) );
             demandDataObject.setIdApplication( demand.getIdApplication( ) );
+            demandDataObject.setCodeApplication( ApplicationHome.findByPrimaryKey( demand.getIdApplication( ) ).getCode( ) );
+            demandDataObject.setNameApplication( ApplicationHome.findByPrimaryKey( demand.getIdApplication( ) ).getName( ) );
             demandDataObject.setIdUserFront( demand.getIdUserFront( ) );
-            demandDataObject.setEnvironment( demand.getEnvironment( ) );
+            demandDataObject.setPrefixEnvironment( demand.getEnvironment( ).getPrefix( ) );
+            demandDataObject.setLabelEnvironment( demand.getEnvironment( ).getLabel( ) );
             demandDataObject.setIsClosed( demand.isClosed( ) );
             demandDataObject.setTimestamp( demand.getCreationDate( ).getTime( ) );
             demandDataObject.setTimestampCreation( demand.getCreationDate( ).getTime( ) );

@@ -70,8 +70,11 @@ public class DemandDataSource extends AbstractDataSource
             demandDataObject.setCodeApplication( ApplicationHome.findByPrimaryKey( demand.getIdApplication( ) ).getCode( ) );
             demandDataObject.setNameApplication( ApplicationHome.findByPrimaryKey( demand.getIdApplication( ) ).getName( ) );
             demandDataObject.setIdUserFront( demand.getIdUserFront( ) );
-            demandDataObject.setPrefixEnvironment( demand.getEnvironment( ).getPrefix( ) );
-            demandDataObject.setLabelEnvironment( demand.getEnvironment( ).getLabel( ) );
+            if ( demand.getEnvironment( ) != null )
+            {
+                demandDataObject.setPrefixEnvironment( demand.getEnvironment( ).getPrefix( ) );
+                demandDataObject.setLabelEnvironment( demand.getEnvironment( ).getLabel( ) );
+            }
             demandDataObject.setIsClosed( demand.isClosed( ) );
             demandDataObject.setTimestamp( demand.getCreationDate( ).getTime( ) );
             demandDataObject.setTimestampCreation( demand.getCreationDate( ).getTime( ) );

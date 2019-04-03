@@ -66,6 +66,8 @@ public class UserDataSource extends AbstractDataSource
         for (User user : listUsers)
         {
             UserObject userDataObject = new UserObject( );
+            userDataObject.setIdUserFront( user.getId( ) );
+
             List<UserApplicationRole> listUserApplicationRoles = UserApplicationRoleHome.getUserApplicationRolesListByIdUser( user.getId( ) );
             List<ApplicationRole> listApplicationRoles = new ArrayList<>( );
             for (UserApplicationRole userApplicationRole : listUserApplicationRoles)
@@ -82,6 +84,7 @@ public class UserDataSource extends AbstractDataSource
                 }
                 listApplicationRoles.add( applicationRole );
             }
+
             userDataObject.setListApplicationRoles( listApplicationRoles );
 
             collResult.add( userDataObject );

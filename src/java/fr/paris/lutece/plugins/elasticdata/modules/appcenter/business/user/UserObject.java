@@ -44,7 +44,29 @@ import java.util.List;
 public class UserObject extends AbstractDataObject
 {
     private List<ApplicationRole> _listApplicationRoles;
-    
+    private String _strIdUserFront;
+
+    /**
+     * Returns the front user Id
+     *
+     * @return The front user Id
+     */
+    public String getIdUserFront( )
+    {
+        return _strIdUserFront;
+    }
+
+    /**
+     * Set the front user id
+     * 
+     * @param strIdUserFront
+     *            the front user id
+     */
+    public void setIdUserFront( String strIdUserFront )
+    {
+        _strIdUserFront = strIdUserFront;
+    }
+
     /**
      * Get the application roles
      * @return the list of application roles

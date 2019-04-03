@@ -60,6 +60,7 @@ public class ApplicationDataSource extends AbstractDataSource
 
         for (Application application : listApplications)
         {
+            application = ApplicationHome.findByPrimaryKey( application.getId( ) );
             ApplicationObject applicationDataObject = new ApplicationObject( );
             applicationDataObject.setName( application.getName( ) );
             applicationDataObject.setCode( application.getCode( ) );

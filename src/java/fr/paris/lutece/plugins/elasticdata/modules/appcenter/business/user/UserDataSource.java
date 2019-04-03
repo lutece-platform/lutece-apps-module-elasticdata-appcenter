@@ -75,8 +75,11 @@ public class UserDataSource extends AbstractDataSource
                 applicationRole.setLabelRole( RoleHome.findByPrimaryKey( userApplicationRole.getIdRole( ) ).getLabel( ) );
                 applicationRole.setIdApplication( userApplicationRole.getIdApplication( ) );
                 Application application = ApplicationHome.findByPrimaryKey( userApplicationRole.getIdApplication( ) );
-                applicationRole.setCodeApplication( application.getCode( ) );
-                applicationRole.setNameApplication( application.getName( ) );
+                if ( application != null )
+                {
+                    applicationRole.setCodeApplication( application.getCode( ) );
+                    applicationRole.setNameApplication( application.getName( ) );
+                }
                 listApplicationRoles.add( applicationRole );
             }
             userDataObject.setListApplicationRoles( listApplicationRoles );

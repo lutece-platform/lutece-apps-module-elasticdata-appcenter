@@ -34,7 +34,6 @@
 
 package fr.paris.lutece.plugins.elasticdata.modules.appcenter.business.application;
 
-import fr.paris.lutece.plugins.appcenter.business.Environment;
 import fr.paris.lutece.plugins.elasticdata.business.AbstractDataObject;
 import java.util.List;
 

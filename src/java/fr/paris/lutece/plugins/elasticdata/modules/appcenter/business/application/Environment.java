@@ -31,52 +31,48 @@
  *
  * License 1.0
  */
-
 package fr.paris.lutece.plugins.elasticdata.modules.appcenter.business.application;
 
-import fr.paris.lutece.plugins.appcenter.business.Application;
-import fr.paris.lutece.plugins.appcenter.business.ApplicationHome;
-import fr.paris.lutece.plugins.elasticdata.business.AbstractDataSource;
-import fr.paris.lutece.plugins.elasticdata.business.DataObject;
-
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-
-/**
- * ApplicationDataSource
- */
-public class ApplicationDataSource extends AbstractDataSource
+public class Environment
 {
+    private String _strPrefix;
+    private String _strLabel;
 
     /**
-     * {@inheritDoc}
+     * Get the prefix of the environment
+     * 
+     * @return the prefix for the environment
      */
-    @Override
-    public Collection fetchDataObjects( )
+    public String getPrefix( )
     {
-        Collection<DataObject> collResult = new ArrayList<>( );
-        List<Application> listApplications = ApplicationHome.getApplicationsList( );
+        return _strPrefix;
+    }
 
-        for (Application application : listApplications)
-        {
-            application = ApplicationHome.findByPrimaryKey( application.getId( ) );
-            ApplicationObject applicationDataObject = new ApplicationObject( );
-            applicationDataObject.setName( application.getName( ) );
-            applicationDataObject.setCode( application.getCode( ) );
-            List<Environment> listEnvironment = new ArrayList<>( );
-            for (fr.paris.lutece.plugins.appcenter.business.Environment environmentApplication : application.getListEnvironment( ) )
-            {
-                Environment environment = new Environment( );
-                environment.setPrefix( environmentApplication.getPrefix( ) );
-                environment.setLabel( environmentApplication.getLabel( ) );
-                listEnvironment.add( environment );
-            }
-            applicationDataObject.setListEnvironment( listEnvironment );
+    /**
+     * Set the prefix of the environment
+     * @param strPrefix the prefix of the environment
+     */
+    public void setPrefix( String strPrefix )
+    {
+        _strPrefix = strPrefix;
+    }
 
-            collResult.add( applicationDataObject );
-        }
+    /**
+     * Get the label of the environment
+     * 
+     * @return the label of the environment
+     */
+    public String getLabel( )
+    {
+        return _strLabel;
+    }
 
-        return collResult;
+    /**
+     * Set the label of the environment
+     * @param strLabel the label of the environment
+     */
+    public void setLabel( String strLabel )
+    {
+        _strLabel = strLabel;
     }
 }

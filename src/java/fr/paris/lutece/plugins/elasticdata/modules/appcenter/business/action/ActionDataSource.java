@@ -76,7 +76,10 @@ public class ActionDataSource extends AbstractDataSource
             actionDataObject.setServerName( actionHistory.getServerName( ) );
             actionDataObject.setIdUserFront( actionHistory.getIdUserFront( ) );
             actionDataObject.setPrefixEnvironment( actionHistory.getCodeEnvironment( ) );
-            actionDataObject.setLabelEnvironment( Environment.getEnvironment( actionHistory.getCodeEnvironment( ) ).getLabel( ) );
+            if ( Environment.getEnvironment( actionHistory.getCodeEnvironment( ) ) != null )
+            {
+                actionDataObject.setLabelEnvironment( Environment.getEnvironment( actionHistory.getCodeEnvironment( ) ).getLabel( ) );
+            }
             actionDataObject.setStatus( actionHistory.getStatus( ) );
             actionDataObject.setTimestamp( actionHistory.getCreationDate( ).getTime( ) );
             actionDataObject.setTimestampCreation( actionHistory.getCreationDate( ).getTime( ) );

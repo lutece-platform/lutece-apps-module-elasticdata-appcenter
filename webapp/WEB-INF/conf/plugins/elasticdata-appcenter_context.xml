@@ -25,4 +25,11 @@
         <property name="dataType" value="application" />
     </bean>
 
+    <bean id="elasticdata-appcenter.actionDataSource" class="fr.paris.lutece.plugins.elasticdata.modules.appcenter.business.action.ActionDataSource" >
+        <property name="id" value="ActionDataSource" />
+        <property name="name" value="Base des actions de Fast Deploy v2" />
+        <property name="targetIndexName" value="actions" />
+        <property name="dataType" value="action" />
+    </bean>
+
 </beans>
